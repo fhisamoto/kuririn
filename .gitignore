@@ -1,6 +1,7 @@
 _deploy.yml
 .deploy
 .bundle
+.sass-cache
 bin
 vendor
 _site
