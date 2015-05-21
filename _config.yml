@@ -1,16 +1,24 @@
-# Site settings
+url: "http://fhisamoto.com"
 title: Sem compromisso com a realidade
 email:
 description: > # this means to ignore newlines until "baseurl:"
   Wenn ist das Nunstruck git und Slotermeyer? Ja!...
   Beiherhund das Oder die Flipperwaldt gersput!
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://fhisamoto.com" # the base hostname & protocol for your site
+markdown: kramdown
+
 github_username: fhisamoto
 delicious_user: fhisamoto
 delicious_count: 5
 
-# Build settings
-markdown: kramdown
-
 exclude: [vendor, bin, .bundle]
+
+gems:
+  - jekyll-gallery-generator
+
+gallery:
+  dir: photos
+  title: "Photos"
+  # field to control sorting of galleries for the index page
+  # (possible values are: title, date_time, best_image)
+  sort_field: "date_time"
