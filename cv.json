@@ -1,0 +1,111 @@
+{
+  "Personal Data": {
+    "name": "Fabio Hideaki Hisamoto",
+    "phone": "+55 11 99668-5805",
+    "email": "fhisamoto@gmail.com"
+  },
+  "Education": [
+    "2000/2004 - Physics Bach. @ Universidade de São Paulo, São Paulo-SP",
+    "1995/1997 - Computer data processing @ Escola Técnica Estadual Lauro Gomes, São Bernardo-SP"
+  ],
+
+  "Experience": [
+    {
+      "company": "TradeForce"
+      "url": "http://www.tradeforce.com.br",
+      "time period": "oct/2014 to may/2015",
+      "position": "lead software developer",
+      "description": "Joined the team to build the culture of agile development.
+
+      Organized the development and deployment cycle using kanban, together with practices of XP like: collective code ownership, code review, refactoring, test driven design and pair programming we were able to enable faster deliveries with improved quality.
+
+      To improve code integration the version control software was changed to use git. To have faster and reliable deployments msbuild, msdeploy and Jenkins was used. Together these changes did speed up deliverable cicle from 2 weeks to almost daily deliveries.
+
+      Also was developed, with the team, a more scalable platform. We modified the code to migrate time consuming tasks in background jobs and changed the infrastructure to provide multi-tenancy.
+      "
+    },
+    {
+      "company": "Magazine Luiza"
+      "url": "http://magazineluiza.com",
+      "time period": "apr/2014 to jul/2014"
+      "position": "senior software developer",
+      "description": "
+        Joined a team in changing process. Started a migration from a monolitic java + spring application to a service oriented architeture using python with django and tornado.
+      "
+    },
+    {
+      "company": "Fundação Estudar",
+      "url": "http://www.estudar.org.br/",
+      "time period": "jan/2014 to apr/2014",
+      "position": "senior software developer",
+      "description": "
+        Helped to create an awesome platform, with Ruby on Rails, to indicate talented young people.
+      "
+    },
+    {
+      "company": "Elo7",
+      "url": "http://elo7.com.br",
+      "time period": "set/2013 to dec/2013",
+      "position": "senior developer",
+      "description": "
+        In elo7 was a great opportunity to learn with awesome developers. Using XP techniques like pair programming full time, fully automated build and test driven design. We were able to improve a code base with many code smells to a very respectable code. We did code mostly in java with a few bits in ruby on rails.
+      "
+    },
+    {
+      "company": "RevMob mobile ad network",
+      "url": "http://revmob.com",
+      "time period": "nov/2011 to jul/2013",
+      "position": "lead developer",
+      "position description": "
+        In RevMob I had a great opportunity to work on a system that had to be designed to respond with very short response time (t < 100 ms) serving a large amount of HTTP requests (~200k rpm). Using ruby on rails and non-relational databases was possible to meet this demand.
+
+        Also I had to develop SDKs for Android and iOS devices, that makes the interface between game or app and our server. These SDKs are java and objective-c native code, but also was necessary to develop or adapt SDKs for other games/apps engines like Corona, Unity and Adobe air.
+
+        My greatest joy in RevMob is to develop code to be used by several developers, and APIs that will be used by a huge number of devices.
+      "
+    },
+    {
+      "company": "Locaweb",
+      "url": "http://locaweb.com.br",
+      "time period": "aug/2006 to nov/2011",
+      "position": "software developer",
+      "position description": "
+        In the period I worked in Locaweb had the opportunity to work in a wide variety of systems: internal customer management system, hosting control panel, domain registration systems, automated provisioning services and online web store services that is sold as SaaS product.
+
+        The biggest challenges were make the integration between internal systems  with components of infrastructure such as cloud computing platform, DNS servers, reports generators, etc.. To make the communication between these systems were used REST webservices, but also were used SOAP webservices where the comunication with legacy systems were needed.
+      "
+    }
+  ],
+  "Activities and projects": [
+    {
+      "activity": "sys admin and open source enthusiast.",
+      "project": "Cidade do Conhecimento - Universidade de São Paulo",
+      "url": "http://cidade.usp.br",
+      "time period": "may/2003 to set/2005",
+      "goals": "Hacking and studying"
+      "description": "
+        At cidade do conhecimento i worked with creating and maintaining a web server with a php website, hacking with open source tools like drupal, moodle and wordpress, to support a community of public school educators.
+      "
+    },
+    {
+      "activity": "Cientific inititation in Monte Carlo simulation of photon-proton in heavy nucleus",
+      "time period": "jan/2003 to dec/2003"
+    },
+    {
+      "activity": "Cientific initiation in analysis of liotropic liquid cristals with image processing",
+      "time period": "jan/2002 to dev/2002"
+    },
+    {
+      "activity": "Cientific initiation in Neural Networks",
+      "time period": "jan/2001 to dec/2001"
+    },
+    {
+      "activity": "Technical degree internship",
+      "company": "TV Globo ltda",
+      "time period": "feb/1998 to aug/1999",
+      "description": "
+        At that time i had lots of fun programming software to show live data of street races - Maratona de São Paulo and Corrida de São Silvestre. Also had to work with systems, using SQL databases and Visual Basic, that were important to engineer team like Tapes management and Engineering Issues tracker.
+      "
+    }
+  ]
+}
