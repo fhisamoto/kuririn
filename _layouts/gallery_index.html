@@ -14,11 +14,13 @@ layout: page
 </style>
 
 {% for gallery in page.galleries %}
-<div class="gallery-wrapper">
+  <div class="gallery-wrapper">
     <a href="{{ gallery['gallery'] }}">
-        <img class="gallery-best-image" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
+      <img class="gallery-best-image" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
     </a>
-    <h3><a href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a></h3>
+    <h4>
+      <a class="page-link" href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a>
+    </h4>
     {{ gallery["images"] | size }} image{% if gallery["images"].size != 1 %}s{% endif %}
-</div>
+  </div>
 {% endfor %}
