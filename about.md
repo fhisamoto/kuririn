@@ -4,8 +4,10 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+*Fabio Hisamoto*,
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+Desenvolvedor de software, Físico de formação. Gosta de desenhar, ler quadrinhos e livros. Vive atualmente em Limeira, São Paulo, mas se predispôs a ter um vida nômade.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+- [Linkedin](https://www.linkedin.com/in/fhisamoto)
+- [Github](https://github.com/fhisamoto)
+- Resume [in json](/cv.json).
