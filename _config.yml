@@ -6,6 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Beiherhund das Oder die Flipperwaldt gersput!
 baseurl: "" # the subpath of your site, e.g. /blog/
 markdown: kramdown
+data_source: data
 
 github_username: fhisamoto
 delicious_user: fhisamoto

@@ -11,7 +11,7 @@
 
   "Experience": [
     {
-      "company": "TradeForce"
+      "company": "TradeForce",
       "url": "http://www.tradeforce.com.br",
       "time period": "oct/2014 to may/2015",
       "position": "lead software developer",
@@ -25,9 +25,9 @@
       "
     },
     {
-      "company": "Magazine Luiza"
+      "company": "Magazine Luiza",
       "url": "http://magazineluiza.com",
-      "time period": "apr/2014 to jul/2014"
+      "time period": "apr/2014 to jul/2014",
       "position": "senior software developer",
       "description": "
         Joined a team in changing process. Started a migration from a monolitic java + spring application to a service oriented architeture using python with django and tornado.
@@ -82,7 +82,7 @@
       "project": "Cidade do Conhecimento - Universidade de São Paulo",
       "url": "http://cidade.usp.br",
       "time period": "may/2003 to set/2005",
-      "goals": "Hacking and studying"
+      "goals": "Hacking and studying",
       "description": "
         At cidade do conhecimento i worked with creating and maintaining a web server with a php website, hacking with open source tools like drupal, moodle and wordpress, to support a community of public school educators.
       "
