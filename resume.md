@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Resume
+permalink: /resume/
 ---
 
 ### {{ site.data.cv.personal_data.name }}
