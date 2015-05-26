@@ -10,4 +10,5 @@ Desenvolvedor de software, Físico de formação. Gosta de desenhar, ler quadrin
 
 - [Linkedin](https://www.linkedin.com/in/fhisamoto)
 - [Github](https://github.com/fhisamoto)
+- [Resume](/resume).
 - Resume [in json](/data/cv.json).
