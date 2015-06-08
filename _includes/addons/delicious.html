@@ -4,13 +4,13 @@
 
   <div id="delicious"></div>
   <script>
-    function renderDeliciousLinks(items) {
-      var output = "<ul>";
-      for (var i = 0,l = items.length; i < l; i++) {
-        output += '<li> <a href="' + items[i].u + '" title="Tags: ' + (items[i].t == "" ? "" : items[i].t.join(', ')) + '">' +    items[i].d +  '</a></li>';
-      }
-      output += "</ul>";
-      $('#delicious').html(output);
+    var renderDeliciousLinks = function(links) {
+      var ul = $('<ul></ul>');
+      links.forEach(function(link) {
+        // var tags = link.t;
+        $('<li><a href="' + link.u + '">' + link.d + '</a></li>').appendTo(ul);
+      });
+      $('#delicious').append(ul);
     }
   </script>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/{{ site.delicious_user }}?count={{ site.delicious_count }}&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
