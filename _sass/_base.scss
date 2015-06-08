@@ -228,6 +228,9 @@ pre {
  * thumbnail
  */
 .images-list {
+  
+  background-color: #eee;
+  
   .photo {
     max-width: 40%;
   }
@@ -240,7 +243,8 @@ pre {
 .thumbnail {
   display: block;
   padding: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   line-height: 1.42857143;
   background-color: #fff;
   border: 1px solid #ddd;
