@@ -1,26 +1,25 @@
 ---
 layout: page
 ---
-<style TYPE="text/css">
-.gallery-wrapper {
-  width: 35em;
-  text-align: center;
-  padding: 1em 0 4em 0;
-}
-.gallery-best-image{
-  max-height: 20em;
-  max-width: 20em;
-}
-</style>
 
+<div class="images-list">
 {% for gallery in page.galleries %}
-  <div class="gallery-wrapper">
-    <a href="{{ gallery['gallery'] }}">
-      <img class="gallery-best-image" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
-    </a>
-    <h4>
-      <a class="page-link" href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a>
-    </h4>
-    {{ gallery["images"] | size }} image{% if gallery["images"].size != 1 %}s{% endif %}
+  <div class="row">
+    <div class="col photo">
+      <div class="thumbnail">
+        <a href="{{ gallery['gallery'] }}">
+          <img src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}" />
+        </a>
+      </div>      
+    </div>
+    <div class="col info">
+      <h4>
+        <a class="page-link" href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a>
+      </h4>
+      <p>
+        {{ gallery["images"] | size }} image{% if gallery["images"].size != 1 %}s{% endif %}
+      </p>
+    </div>
   </div>
 {% endfor %}
+</div>

@@ -213,7 +213,6 @@ pre {
   background-color: #777;
   padding: .2em .6em .3em;
   font-size: 75%;
-//  font-weight: 700;
   box-sizing: border-box;
   line-height: 1;
   color: #fff;
@@ -222,3 +221,33 @@ pre {
   vertical-align: baseline;
   border-radius: .25em;
 }
+
+
+
+/**
+ * thumbnail
+ */
+.images-list {
+  .photo {
+    max-width: 40%;
+  }
+  
+  .info {
+    max-width: 60%;
+  }  
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+}
+
+
