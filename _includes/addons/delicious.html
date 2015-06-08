@@ -7,8 +7,10 @@
     var renderDeliciousLinks = function(links) {
       var ul = $('<ul></ul>');
       links.forEach(function(link) {
-        // var tags = link.t;
-        $('<li><a href="' + link.u + '">' + link.d + '</a></li>').appendTo(ul);
+        var li = $('<li><a href="' + link.u + '">' + link.d + '</a></li>');
+        var tags = link.t.map(function(tag){ return '<span class="label">' + tag + '</span>'; });
+        li.append('<p>'+ tags.join(" ") +'</p>');
+        li.appendTo(ul);
       });
       $('#delicious').append(ul);
     }
