@@ -1,0 +1,207 @@
+---
+layout: post
+title: "Workers"
+---
+<style>
+	.measurement {
+		width: 30%;
+	}
+	
+	.app {
+		width: 65%;
+	}
+	
+	.btn {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 4px;
+	}
+
+	.worker-queue {
+		min-height: 20px;
+		margin: 5px;
+		padding: 5px;
+		border: 1px solid white;
+		background-color: #f5f5f5;
+		font-family: monospace;
+		font-size: 11px;
+		list-style-type: none;
+		border-radius: 4px;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	}
+	
+	.job {
+  		margin-right: 1px;
+  		margin-top: 1px;
+		color: #eee;
+  		display: inline-block;
+  		background-color: #57f269;
+	}
+</style>
+
+<div class="row">
+	<div class="col measurement">
+		<button id="create-jobs" class="btn" type="button">Create Jobs</button>
+	</div>
+	<div class="col app">
+		<div id="workers"></div>
+	</div>
+</div>
+
+<script>
+$(function() {
+	var Measurement = function() {
+	  this.num = 0;
+	  this.totalTime = 0;
+	  this.totalTime2 = 0;
+	  
+	  this.inc = function(num, totalTime, totalTime2) {
+	    this.num += num;
+	    this.totalTime += totalTime;
+	    this.totalTime2 += totalTime2;
+	  }
+	
+	  this.average = function() {
+	    if (this.num > 0) {
+	      return this.totalTime / this.num;
+	    }
+	    return 0;
+	  };
+	
+	  this.standardDeviation = function() {
+	    var avg = this.average();
+	    if (avg > 0) {
+	      return Math.sqrt(this.totalTime2 / this.num - (avg * avg));
+	    }
+	    return 0;
+	  };
+	}
+	
+    var Job = function() {
+      this.domElement = $('<li class="job" data-request-time="' + this.requestTime + '">.</li>');
+      this.requestTime = (new Date()).getTime();
+      this.endTime = null;
+      this.totalTime = function() {
+        return this.endTime - this.requestTime;
+      }
+	  
+      var gaussRandom = function () {
+         var u = 2 * Math.random() - 1;
+         var v = 2 * Math.random() - 1;
+         var r = u * u + v * v;
+         if (r == 0 || r > 1) return gaussRandom();
+         var c = Math.sqrt(-2 * Math.log(r) / r);
+         return u * c;
+      }
+	  
+      this.processTime = function() {
+        return (gaussRandom() * 50.0) + 400.0;
+      }
+	  
+      this.execute = function() {
+        var job = this;
+        return setTimeout(function() {
+          job.endTime = (new Date()).getTime();
+          job.domElement.parent().trigger('job-finished', { job: job });
+        }, this.processTime());
+      }
+      return this;
+    };
+	
+    var Worker = function() {
+      var worker = { 'domElement': $('<ul class="worker-queue"></ul>') };
+      var jobs = [];
+      worker.domElement.on('job-added', function(e, params) {
+        if (jobs.length === 1) {
+          var job = params['job'];
+          job.execute();
+        }
+      });
+	  
+      worker.domElement.on('job-finished', function(e, params) {
+        var job = jobs.shift();
+        job.domElement.remove();
+        var totalTime = job.totalTime();
+        var latency = new Measurement();
+        latency.inc(1, totalTime, totalTime * totalTime);
+        $(document).trigger('summarize', { latency: latency });
+        if (jobs.length > 0) {
+          jobs[0].execute();
+        }
+      });
+	  
+      worker.addJob = function(job) {
+        jobs.push(job);
+        worker.domElement.append(job.domElement);
+        worker.domElement.trigger('job-added', { job: job });
+      }
+      return worker;
+    }
+	
+    var WorkerPool = function(options) {
+      var MAX_WORKERS = 10;
+      this.domElement = $('#workers');
+      this.workers = [];
+      
+	  for (var i = 0; i < MAX_WORKERS; i++) {
+        var worker = new Worker();
+        this.workers.push(worker);
+        this.domElement.append(worker.domElement);
+      }
+	  
+      var RoundRobinStrategy = function(workers) {
+        var i = 0;
+        var inc = function() {
+          i = (i < workers.length - 1) ? i + 1: 0;
+        }
+      
+	    this.getWorker = function() {
+          var worker = workers[i];
+          inc();
+          return worker;
+        }
+        return this;
+      };
+      
+	  this.strategy = new RoundRobinStrategy(this.workers);
+      this.addJob = function() {
+        this.strategy.getWorker().addJob(new Job());
+      };
+      return this;
+    };
+    
+	var pool = new WorkerPool();
+    var latency = new Measurement();
+	
+    $(document).on('summarize', function(event, params) {
+      var l = params['latency'];
+      latency.inc(l.num, l.totalTime, l.totalTime2);
+//	  $('#latency-mean').html(latency.average().toFixed(0));
+//      $('#latency-std').html(latency.standardDeviation().toFixed(0));
+//      $('#num-jobs').html(latency.num);
+    })
+	
+    $('#create-jobs').on('click', function() {
+      var CONCURRENT_JOBS = 400;
+      for(var i = 0; i < CONCURRENT_JOBS; i++) {
+        pool.addJob();
+      }
+    });
+ });
+</script>
