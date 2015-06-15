@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Workers"
+date: 2015-06-14T21:02:40-03:00
 ---
 <style>
 	.measurement {
