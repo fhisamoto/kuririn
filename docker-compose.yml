@@ -1,0 +1,17 @@
+gems:
+  image: ruby
+  volumes:
+    - /usr/local/bundle
+  command: /bin/sh
+
+ruby:
+  image: ruby
+  volumes_from:
+    - gems
+  volumes:
+    - .:/app
+  ports:
+    - "4000:4000"
+  environment:
+    - MENTOS_TIMEOUT=30
+  working_dir: /app
