@@ -12,7 +12,7 @@ github_username: fhisamoto
 delicious_user: fhisamoto
 delicious_count: 5
 
-exclude: [vendor, bin, .bundle]
+exclude: [vendor, bin, deploy_keys, .bundle]
 
 gems:
   - jekyll-gallery-generator

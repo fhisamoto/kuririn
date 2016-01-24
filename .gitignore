@@ -5,3 +5,4 @@ _deploy.yml
 bin
 vendor
 _site
+deploy_keys/*
