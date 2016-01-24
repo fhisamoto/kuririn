@@ -30,4 +30,7 @@ publish:
     - .:/app
     - ./deploy_keys:/root/.ssh
   command: >
-    sh -c "git config --global user.email 'fhisamoto@gmail.com' && bundle exec jekyll build && bundle exec octopress deploy"
+    sh -c "git config --global user.email 'deploy@fhisamoto.com' &&
+    rm -rf _site &&
+    bundle exec jekyll build &&
+    bundle exec octopress deploy"
