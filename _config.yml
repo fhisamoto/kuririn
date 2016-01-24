@@ -12,7 +12,14 @@ github_username: fhisamoto
 delicious_user: fhisamoto
 delicious_count: 5
 
-exclude: [vendor, bin, deploy_keys, .bundle]
+exclude:
+  - vendor
+  - bin
+  - deploy_keys
+  - .bundle
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
 
 gems:
   - jekyll-gallery-generator

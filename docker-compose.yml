@@ -10,16 +10,24 @@ ruby: &ruby
     - gems
   volumes:
     - .:/app
+  environment:
+    - MENTOS_TIMEOUT=30
   working_dir: /app
 
 s:
   <<: *ruby
   ports:
     - "4000:4000"
-  environment:
-    - MENTOS_TIMEOUT=30
   command: bundle exec jekyll s -H 0.0.0.0 -w -D --force_polling
 
 c:
   <<: *ruby
   command: /bin/bash
+
+publish:
+  <<: *ruby
+  volumes:
+    - .:/app
+    - ./deploy_keys:/root/.ssh
+  command: >
+    sh -c "git config --global user.email 'fhisamoto@gmail.com' && bundle exec jekyll build && bundle exec octopress deploy"
