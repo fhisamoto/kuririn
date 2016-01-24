@@ -4,14 +4,22 @@ gems:
     - /usr/local/bundle
   command: /bin/sh
 
-ruby:
+ruby: &ruby
   image: ruby
   volumes_from:
     - gems
   volumes:
     - .:/app
-  ports:
-    - "4000:4000"
   environment:
     - MENTOS_TIMEOUT=30
   working_dir: /app
+
+s:
+  <<: *ruby
+  ports:
+    - "4000:4000"
+  command: bundle exec jekyll s -H 0.0.0.0 -w -D
+
+c:
+  <<: *ruby
+  command: /bin/bash
