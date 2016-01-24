@@ -10,15 +10,15 @@ ruby: &ruby
     - gems
   volumes:
     - .:/app
-  environment:
-    - MENTOS_TIMEOUT=30
   working_dir: /app
 
 s:
   <<: *ruby
   ports:
     - "4000:4000"
-  command: bundle exec jekyll s -H 0.0.0.0 -w -D
+  environment:
+    - MENTOS_TIMEOUT=30
+  command: bundle exec jekyll s -H 0.0.0.0 -w -D --force_polling
 
 c:
   <<: *ruby
